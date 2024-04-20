@@ -9,3 +9,8 @@
 html {
   font-family: Poppins, sans-serif;
 }
+
+.pixel {
+  height: 16px;
+  width: 16px;
+}
