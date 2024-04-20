@@ -10,7 +10,17 @@ html {
   font-family: Poppins, sans-serif;
 }
 
+.container {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+.sketch-container {
+  border: red 3px solid;
+}
+
 .pixel {
   height: 16px;
   width: 16px;
+  border: black 3px solid;
 }
