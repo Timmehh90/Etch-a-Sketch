@@ -29,8 +29,9 @@ html {
   flex-wrap: wrap;
 }
 
-.pixel {
+.grid-element {
   height: 16px;
   width: 16px;
   background: white;
+  border: black 1px solid;
 }
