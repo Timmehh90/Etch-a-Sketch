@@ -8,7 +8,7 @@ const submitButton = document.querySelector("#submit");
 const sketchContainer = document.querySelector(".sketch-container");
 
 // Mode variables
-let mode = "black";
+let mode = "Black";
 const blackModeButton = document.querySelector("#black");
 const rainbowModeButton = document.querySelector("#rainbow");
 const eraseButton = document.querySelector("#erase");
