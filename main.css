@@ -14,7 +14,7 @@
   --clr-900: #111827;
   --clr-accent: red;
   --grid-size: 650px;
-  --draw-speed: 500ms;
+  --draw-speed: 200ms;
 }
 
 /* CSS reset */
@@ -29,6 +29,7 @@ html {
   font-family: Poppins, sans-serif;
   color: var(--clr-600);
   font-size: 1.1rem;
+  font-weight: bold;
 }
 
 /* Website width */
@@ -51,7 +52,6 @@ html {
 /* Form */
 form {
   color: var(--clr-600);
-  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,7 +64,6 @@ form #amount {
   margin: 20px 0;
   border: var(--clr-600) solid 2px;
   border-radius: 3px;
-  font-weight: bold;
 }
 
 .label-transition {
@@ -76,9 +75,7 @@ form #amount {
   width: var(--grid-size);
   margin: 0 auto;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-weight: bold;
   color: var(--clr-600);
 }
 
