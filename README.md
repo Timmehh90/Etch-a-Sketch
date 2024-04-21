@@ -23,3 +23,5 @@ From now on I'll be using the README.md file to keep track of what I've learned 
   drawing effect. I refractor that to try to recreate the same thing with javascript
   because that is what the assignment asks of me. Although i do think CSS is
   the better way to go.
+- document.querySelector selects the first element of that class, document.querySelectorAll
+  selects all elements of that class
