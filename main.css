@@ -110,6 +110,11 @@ form #amount {
   font-weight: bold;
 }
 
+.btn:hover {
+  transform: scale(1.2);
+  transition-duration: 1s;
+}
+
 .active {
   border: red solid 1px;
   color: red;
