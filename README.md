@@ -29,3 +29,4 @@ From now on I'll be using the README.md file to keep track of what I've learned 
   iterate over it by using forEach
 - You can pass on a css variable from javascript to css by using
   **document.documentElement.style.setProperty("--grid-size", input)**
+- You can change the checkbox tick color by using **accent-color** parameter
