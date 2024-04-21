@@ -24,11 +24,11 @@ html {
 }
 
 .sketch-container {
-  width: calc(10 * 15px);
-  border: var(--clr-600) 3px solid;
+  border: var(--clr-600) 2px solid;
   display: flex;
   flex-wrap: wrap;
   margin: 50px auto 0;
+  width: 70%;
 }
 
 .grid-element {
