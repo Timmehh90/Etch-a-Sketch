@@ -28,6 +28,7 @@ html {
   display: flex;
   flex-wrap: wrap;
   margin: 50px auto 0;
+  width: fit-content;
 }
 
 .grid-element {
