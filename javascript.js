@@ -67,6 +67,7 @@ function toolSelection(event, tool) {
     event.target.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
   } else if (tool === "Erase") {
     event.target.style.backgroundColor = "var(--clr-200)";
+    event.target.style.opacity = "0.1";
   }
 
   if (darken.checked === true) {
@@ -77,6 +78,7 @@ function toolSelection(event, tool) {
 function clearGrid() {
   sketchContainer.querySelectorAll(".grid-element").forEach((gridElement) => {
     gridElement.style.backgroundColor = "var(--clr-200)";
+    gridElement.style.opacity = "0.1";
   });
 }
 
