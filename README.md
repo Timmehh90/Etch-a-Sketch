@@ -25,3 +25,5 @@ From now on I'll be using the README.md file to keep track of what I've learned 
   the better way to go.
 - document.querySelector selects the first element of that class, document.querySelectorAll
   selects all elements of that class
+- You can add event listeners on each created element by using the node array and
+  iterate over it by using forEach
