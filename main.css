@@ -39,7 +39,7 @@ html {
 }
 
 .sketch-container {
-  border: var(--clr-600) 5px solid;
+  border: var(--clr-600) 20px solid;
   border-radius: 5px;
   display: flex;
   margin: 25px auto 50px;
@@ -54,16 +54,25 @@ html {
   /* border: black 1px solid; */
 }
 
-.tools {
+.tool-container {
   width: var(--grid-size);
   margin: 15px auto 0;
   display: flex;
-  gap: 15px;
   justify-content: center;
   align-items: center;
   font-weight: bold;
   color: var(--clr-600);
   /* border: black solid 1px; */
+}
+
+.tools {
+  margin-right: auto;
+  display: flex;
+  gap: 15px;
+}
+
+.current-tool {
+  margin-left: auto;
 }
 
 .btn {

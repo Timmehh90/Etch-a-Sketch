@@ -13,6 +13,7 @@ const blackModeButton = document.querySelector("#black");
 const rainbowModeButton = document.querySelector("#rainbow");
 const eraseButton = document.querySelector("#erase");
 const clearButton = document.querySelector("#clear");
+const activeTool = document.querySelector("#active-tool");
 
 // FUNCTIONS
 function createGrid(input) {
@@ -53,11 +54,11 @@ function toolSelection(event, tool) {
   const randomGreen = Math.floor(Math.random() * 256);
   const randomBlue = Math.floor(Math.random() * 256);
 
-  if (tool === "black") {
+  if (tool === "Black") {
     event.target.style.backgroundColor = "rgb(0, 0, 0)";
-  } else if (tool === "rainbow") {
+  } else if (tool === "Rainbow") {
     event.target.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
-  } else if (tool === "erase") {
+  } else if (tool === "Erase") {
     event.target.style.backgroundColor = "var(--clr-200)";
   }
 }
@@ -76,18 +77,24 @@ submitButton.addEventListener("click", (event) => {
 });
 
 blackModeButton.addEventListener("click", () => {
-  mode = "black";
+  mode = "Black";
+  activeTool.textContent = `${mode}`;
 });
 
 rainbowModeButton.addEventListener("click", () => {
-  mode = "rainbow";
+  mode = "Rainbow";
+  activeTool.textContent = `${mode}`;
 });
 
 eraseButton.addEventListener("click", () => {
-  mode = "erase";
+  mode = "Erase";
+  activeTool.textContent = `${mode}`;
 });
 
 clearButton.addEventListener("click", clearGrid);
 
 // Standard grid creation
 createGrid(16);
+
+// Initialize current mode
+activeTool.textContent = `${mode}`;
