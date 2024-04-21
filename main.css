@@ -16,11 +16,21 @@ html {
 }
 
 .sketch-container {
+  max-width: 50%;
   border: red 3px solid;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .pixel {
   height: 16px;
   width: 16px;
-  border: black 3px solid;
+  /* border: black 1px solid; */
+  background: white;
+  transition: 8s ease-out;
+}
+
+.pixel:hover {
+  transition: 300ms ease-out;
+  background: black;
 }
