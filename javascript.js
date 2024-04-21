@@ -4,9 +4,6 @@
 const inputField = document.querySelector("#amount");
 const submitButton = document.querySelector("#submit");
 
-// Grid Element variable
-// const gridElements = document.querySelectorAll(".grid-element");
-
 // Sketch container
 const sketchContainer = document.querySelector(".sketch-container");
 
