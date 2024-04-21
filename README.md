@@ -27,3 +27,5 @@ From now on I'll be using the README.md file to keep track of what I've learned 
   selects all elements of that class
 - You can add event listeners on each created element by using the node array and
   iterate over it by using forEach
+- You can pass on a css variable from javascript to css by using
+  **document.documentElement.style.setProperty("--grid-size", input)**
