@@ -14,6 +14,7 @@ const rainbowModeButton = document.querySelector("#rainbow");
 const eraseButton = document.querySelector("#erase");
 const clearButton = document.querySelector("#clear");
 const activeTool = document.querySelector("#active-tool");
+const darken = document.querySelector("#darken");
 
 // FUNCTIONS
 function createGrid(input) {
@@ -30,6 +31,7 @@ function createGrid(input) {
       const row = document.createElement("div");
       row.classList.add("row");
       sketchContainer.appendChild(row);
+
       for (let j = 0; j < input; j++) {
         const column = document.createElement("div");
         column.classList.add("grid-element");
@@ -39,6 +41,7 @@ function createGrid(input) {
         row.appendChild(column);
       }
     }
+
     // Goes over each created grid element to add an mouse enter event listener
     const gridElements = document.querySelectorAll(".grid-element");
     gridElements.forEach((gridElement) => {
@@ -65,12 +68,26 @@ function toolSelection(event, tool) {
   } else if (tool === "Erase") {
     event.target.style.backgroundColor = "var(--clr-200)";
   }
+
+  if (darken.checked === true) {
+    changeOpacity(event);
+  }
 }
 
 function clearGrid() {
   sketchContainer.querySelectorAll(".grid-element").forEach((gridElement) => {
     gridElement.style.backgroundColor = "var(--clr-200)";
   });
+}
+
+function changeOpacity(event) {
+  let opacity = +getComputedStyle(event.target).opacity;
+  console.log(opacity);
+  if (opacity === "") {
+    event.target.style.opacity.toString();
+  } else if (opacity > 0) {
+    event.target.style.opacity = opacity.toString();
+  }
 }
 
 // EVENT LISTENERS
