@@ -111,3 +111,4 @@ createGrid(16);
 
 // Initialize current mode
 activeTool.textContent = `${mode}`;
+blackModeButton.classList.add("active");
