@@ -5,7 +5,7 @@ const inputField = document.querySelector("#amount");
 const submitButton = document.querySelector("#submit");
 
 // Grid Element variable
-const gridElements = document.querySelectorAll(".grid-element");
+// const gridElements = document.querySelectorAll(".grid-element");
 
 // Sketch container
 const sketchContainer = document.querySelector(".sketch-container");
@@ -18,10 +18,15 @@ function createGrid(input) {
       pixel.classList.add("grid-element");
       sketchContainer.appendChild(pixel);
     }
+    const gridElements = document.querySelectorAll(".grid-element");
+    gridElements.forEach((gridElement) => {
+      gridElement.addEventListener("mouseenter", colorOnHover);
+      console.log("Event listener added to gridElement");
+    });
   }
 }
 function colorOnHover(event) {
-  event.target.backgroundColor = "black";
+  event.target.style.backgroundColor = "black";
 }
 
 // EVENT HANDLERS
@@ -30,10 +35,3 @@ submitButton.addEventListener("click", (event) => {
   event.preventDefault();
   createGrid(parseInt(inputField.value));
 });
-
-console.log("Your script comes pass this");
-gridElements.forEach((gridElement) => {
-  gridElement.addEventListener("mouseenter", colorOnHover);
-  console.log("Event listener added to gridElement");
-});
-console.log("And also here");
