@@ -9,9 +9,6 @@ const sketchContainer = document.querySelector(".sketch-container");
 
 // FUNCTIONS
 function createGrid(input) {
-  // Passes grid-size to CSS so i could calculate with it
-  document.documentElement.style.setProperty("--grid-size", input);
-
   // Resets the grid when function is called
   sketchContainer.innerHTML = "";
 
@@ -23,6 +20,8 @@ function createGrid(input) {
       for (let j = 0; j < input; j++) {
         const column = document.createElement("div");
         column.classList.add("grid-element");
+        column.style.width = 750 / input + "px";
+        column.style.height = 750 / input + "px";
         row.appendChild(column);
       }
     }
