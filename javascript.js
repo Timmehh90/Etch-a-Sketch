@@ -29,7 +29,7 @@ function createGrid(input) {
     const gridElements = document.querySelectorAll(".grid-element");
     gridElements.forEach((gridElement) => {
       gridElement.addEventListener("mouseenter", colorOnHover);
-      gridElement.addEventListener("mouseleave", defaultColor);
+      // gridElement.addEventListener("mouseleave", defaultColor);
     });
   }
 }
@@ -52,4 +52,4 @@ submitButton.addEventListener("click", (event) => {
 });
 
 // Standard grid creation
-createGrid(16);
+createGrid(64);
