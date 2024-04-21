@@ -6,7 +6,6 @@ const submitButton = document.querySelector("#submit");
 
 // Sketch container
 const sketchContainer = document.querySelector(".sketch-container");
-const standardGridElements = document.querySelectorAll(".grid-element");
 
 // FUNCTIONS
 function createGrid(input) {
@@ -49,10 +48,5 @@ submitButton.addEventListener("click", (event) => {
   createGrid(parseInt(inputField.value));
 });
 
-// // Add event listeners to the standard grid when you enter the site
-// standardGridElements.forEach((gridElement) => {
-//   gridElement.addEventListener("mouseenter", colorOnHover);
-//   gridElement.addEventListener("mouseleave", defaultColor);
-// });
-
+// Standard grid creation
 createGrid(16);
