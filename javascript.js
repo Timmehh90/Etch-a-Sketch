@@ -9,6 +9,7 @@ const sketchContainer = document.querySelector(".sketch-container");
 
 // FUNCTIONS
 function createGrid(input) {
+  document.documentElement.style.setProperty("--grid-size", input);
   sketchContainer.innerHTML = ""; // Resets the grid when function is called
   if (input > 0 && input <= 100) {
     for (let i = 0; i < input; i++) {

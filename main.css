@@ -28,13 +28,12 @@ html {
   display: flex;
   flex-wrap: wrap;
   margin: 50px auto 0;
-  width: 70%;
 }
 
 .grid-element {
   height: 16px;
   width: 16px;
   background: white;
-  transition: 0s 1000ms ease-out;
+  transition: background-color 0.3s ease-out;
   border: black 1px solid;
 }
