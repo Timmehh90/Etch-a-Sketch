@@ -9,6 +9,11 @@ const sketchContainer = document.querySelector(".sketch-container");
 
 // FUNCTIONS
 function createGrid(input) {
+  // Stores CSS variable inside javascript so i can easily edit size by only editing CSS
+  const gridSize = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue("--grid-size")
+  );
+  console.log("Grid size:", gridSize);
   // Resets the grid when function is called
   sketchContainer.innerHTML = "";
 
@@ -20,8 +25,8 @@ function createGrid(input) {
       for (let j = 0; j < input; j++) {
         const column = document.createElement("div");
         column.classList.add("grid-element");
-        column.style.width = 750 / input + "px";
-        column.style.height = 750 / input + "px";
+        column.style.width = gridSize / input + "px";
+        column.style.height = gridSize / input + "px";
         row.appendChild(column);
       }
     }
