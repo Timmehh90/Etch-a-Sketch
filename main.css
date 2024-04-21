@@ -20,18 +20,21 @@ html {
 .container {
   width: 1024px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .sketch-container {
-  max-width: 50%;
+  width: calc(10 * 15px);
   border: var(--clr-600) 3px solid;
   display: flex;
   flex-wrap: wrap;
+  margin: 50px auto 0;
 }
 
 .grid-element {
   height: 16px;
   width: 16px;
   background: white;
+  transition: 0s 1000ms ease-out;
   border: black 1px solid;
 }

@@ -23,10 +23,13 @@ function createGrid(input) {
     });
   }
 }
+
+// Changes background color to black on mouse enter
 function colorOnHover(event) {
   event.target.style.backgroundColor = "black";
 }
 
+// Changes background color to white on mouse leave
 function defaultColor(event) {
   event.target.style.backgroundColor = "white";
 }
