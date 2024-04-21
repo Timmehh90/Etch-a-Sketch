@@ -6,6 +6,13 @@
   box-sizing: border-box;
 }
 
+:root {
+  --clr-50: #f9fafb;
+  --clr-300: #d1d5db;
+  --clr-600: #4b5563;
+  --clr-900: #111827;
+}
+
 html {
   font-family: Poppins, sans-serif;
 }
@@ -17,7 +24,7 @@ html {
 
 .sketch-container {
   max-width: 50%;
-  border: red 3px solid;
+  border: var(--clr-600) 3px solid;
   display: flex;
   flex-wrap: wrap;
 }
@@ -25,7 +32,6 @@ html {
 .pixel {
   height: 16px;
   width: 16px;
-  /* border: black 1px solid; */
   background: white;
   transition: 8s ease-out;
 }
