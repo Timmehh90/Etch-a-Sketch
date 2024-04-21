@@ -40,14 +40,14 @@ function createGrid(input) {
     const gridElements = document.querySelectorAll(".grid-element");
     gridElements.forEach((gridElement) => {
       gridElement.addEventListener("mouseenter", (event) => {
-        colorOnHover(event, mode);
+        toolSelection(event, mode);
       });
     });
   }
 }
 
 // Changes background color to black on mouse enter
-function colorOnHover(event, tool) {
+function toolSelection(event, tool) {
   const randomRed = Math.floor(Math.random() * 256);
   const randomGreen = Math.floor(Math.random() * 256);
   const randomBlue = Math.floor(Math.random() * 256);
