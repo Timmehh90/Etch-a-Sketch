@@ -23,12 +23,14 @@
   box-sizing: border-box;
 }
 
+/* Standard styling */
 html {
   font-family: Poppins, sans-serif;
   color: var(--clr-600);
   font-size: 1.1rem;
 }
 
+/* Website width */
 .container {
   width: 1024px;
   margin: 0 auto;
