@@ -12,6 +12,7 @@ let mode = "black";
 const blackModeButton = document.querySelector("#black");
 const rainbowModeButton = document.querySelector("#rainbow");
 const eraseButton = document.querySelector("#erase");
+const clearButton = document.querySelector("#clear");
 
 // FUNCTIONS
 function createGrid(input) {
@@ -61,6 +62,12 @@ function toolSelection(event, tool) {
   }
 }
 
+function clearGrid() {
+  sketchContainer.querySelectorAll(".grid-element").forEach((gridElement) => {
+    gridElement.style.backgroundColor = "var(--clr-200)";
+  });
+}
+
 // EVENT LISTENERS
 
 submitButton.addEventListener("click", (event) => {
@@ -79,6 +86,8 @@ rainbowModeButton.addEventListener("click", () => {
 eraseButton.addEventListener("click", () => {
   mode = "erase";
 });
+
+clearButton.addEventListener("click", clearGrid);
 
 // Standard grid creation
 createGrid(16);
