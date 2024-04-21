@@ -27,15 +27,15 @@ html {
   border: var(--clr-600) 5px solid;
   border-radius: 5px;
   display: flex;
-  flex-wrap: wrap;
   margin: 50px auto 0;
-  width: fit-content;
+  width: 600px;
+  height: 600px;
 }
 
 .grid-element {
-  height: 16px;
-  width: 16px;
+  min-height: calc(600 / var(--grid-size));
+  min-width: calc(600 / var(--grid-size));
   background: white;
   transition: background-color 10s ease-out;
-  /* border: black 1px solid; */
+  border: black 1px solid;
 }
