@@ -116,6 +116,16 @@ form #amount {
   opacity: 0.1;
 }
 
+/* Footer */
+.footer {
+  background: var(--clr-100);
+  height: 100px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Buttons */
 
 .btn {
