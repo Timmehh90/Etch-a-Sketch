@@ -17,7 +17,7 @@ function createGrid(input) {
       const row = document.createElement("div");
       row.classList.add("row");
       sketchContainer.appendChild(row);
-      for (let i = 0; i < input; i++) {
+      for (let j = 0; j < input; j++) {
         const column = document.createElement("div");
         column.classList.add("grid-element");
         row.appendChild(column);
