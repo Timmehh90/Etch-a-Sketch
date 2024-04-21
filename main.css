@@ -13,7 +13,7 @@
   --clr-300: #d1d5db;
   --clr-600: #4b5563;
   --clr-900: #111827;
-  --grid-size: 750px;
+  --grid-size: 700px;
 }
 
 html {
@@ -32,7 +32,7 @@ html {
   border: var(--clr-600) 5px solid;
   border-radius: 5px;
   display: flex;
-  margin: 25px auto 0;
+  margin: 25px auto 50px;
   width: var(--grid-size);
   height: var(--grid-size);
   box-sizing: content-box;
