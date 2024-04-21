@@ -8,6 +8,8 @@
 
 :root {
   --clr-50: #f9fafb;
+  --clr-100: #f3f4f6;
+  --clr-200: #e2e8f0;
   --clr-300: #d1d5db;
   --clr-600: #4b5563;
   --clr-900: #111827;
@@ -17,6 +19,7 @@
 html {
   font-family: Poppins, sans-serif;
   color: rgb(280, green, blue);
+  font-size: 1.1rem;
 }
 
 .container {
@@ -29,14 +32,52 @@ html {
   border: var(--clr-600) 5px solid;
   border-radius: 5px;
   display: flex;
-  margin: 50px auto 0;
+  margin: 25px auto 0;
   width: var(--grid-size);
   height: var(--grid-size);
   box-sizing: content-box;
+  background: var(--clr-200);
 }
 
 .grid-element {
-  background: white;
   transition: background-color 1s ease-out;
   /* border: black 1px solid; */
+}
+
+.tools {
+  width: var(--grid-size);
+  margin: 15px auto 0;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: var(--clr-600);
+  /* border: black solid 1px; */
+}
+
+.btn {
+  background-color: var(--clr-600);
+  color: var(--clr-50);
+  border-radius: 5px;
+  padding: 4px 8px;
+  font-weight: bold;
+}
+
+form {
+  color: var(--clr-600);
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+form #amount {
+  width: 44px;
+  transform: scale(1.2);
+  margin: 20px 0;
+  border: var(--clr-600) solid 2px;
+  border-radius: 3px;
+  font-weight: bold;
 }
