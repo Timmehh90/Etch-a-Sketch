@@ -18,6 +18,7 @@
   --clr-600: #4b5563;
   --clr-900: #111827;
   --grid-size: 650px;
+  --draw-speed: 500ms;
 }
 
 html {
@@ -49,7 +50,7 @@ html {
 }
 
 .grid-element {
-  transition: background-color 1s ease-out;
+  transition: background-color var(--draw-speed) ease-out;
   /* border: black 1px solid; */
 }
 
