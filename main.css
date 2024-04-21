@@ -91,6 +91,7 @@ form #amount {
 #darken {
   margin-left: 7px;
   transform: scale(1.3);
+  accent-color: var(--clr-accent);
 }
 
 /* Sketch board */
