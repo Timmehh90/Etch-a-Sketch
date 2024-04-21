@@ -4,12 +4,7 @@
 /* Google font - Alex Brush */
 @import url("https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Variables */
 :root {
   --clr-50: #f9fafb;
   --clr-100: #f3f4f6;
@@ -21,68 +16,32 @@
   --draw-speed: 500ms;
 }
 
+/* CSS reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   font-family: Poppins, sans-serif;
-  color: rgb(280, green, blue);
+  color: var(--clr-600);
   font-size: 1.1rem;
 }
 
 .container {
   width: 1024px;
   margin: 0 auto;
-  text-align: center;
 }
 
+/* Header */
 .title {
   font-family: "Alex Brush", Poppins, sans-serif;
   font-size: 4rem;
+  text-align: center;
 }
 
-.sketch-container {
-  border: var(--clr-600) 20px solid;
-  border-radius: 5px;
-  display: flex;
-  margin: 25px auto 50px;
-  width: var(--grid-size);
-  height: var(--grid-size);
-  box-sizing: content-box;
-  background: var(--clr-200);
-}
-
-.grid-element {
-  transition: background-color var(--draw-speed) ease-out;
-  /* border: black 1px solid; */
-}
-
-.tool-container {
-  width: var(--grid-size);
-  margin: 15px auto 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  color: var(--clr-600);
-  /* border: black solid 1px; */
-}
-
-.tools {
-  margin-right: auto;
-  display: flex;
-  gap: 15px;
-}
-
-.current-tool {
-  margin-left: auto;
-}
-
-.btn {
-  background-color: var(--clr-600);
-  color: var(--clr-50);
-  border-radius: 5px;
-  padding: 4px 8px;
-  font-weight: bold;
-}
-
+/* Form */
 form {
   color: var(--clr-600);
   font-weight: bold;
@@ -98,5 +57,53 @@ form #amount {
   margin: 20px 0;
   border: var(--clr-600) solid 2px;
   border-radius: 3px;
+  font-weight: bold;
+}
+
+/* Toolbar */
+.tool-container {
+  width: var(--grid-size);
+  margin: 15px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: var(--clr-600);
+}
+
+.tools {
+  margin-right: auto;
+  display: flex;
+  gap: 15px;
+}
+
+.current-tool {
+  margin-left: auto;
+}
+
+/* Sketch board */
+
+.sketch-container {
+  border: var(--clr-600) 20px solid;
+  border-radius: 5px;
+  display: flex;
+  margin: 25px auto 50px;
+  width: var(--grid-size);
+  height: var(--grid-size);
+  box-sizing: content-box;
+  background: var(--clr-200);
+}
+
+.grid-element {
+  transition: background-color var(--draw-speed) ease-out;
+}
+
+/* Buttons */
+
+.btn {
+  background-color: var(--clr-600);
+  color: var(--clr-50);
+  border-radius: 5px;
+  padding: 4px 8px;
   font-weight: bold;
 }
