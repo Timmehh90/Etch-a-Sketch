@@ -70,7 +70,7 @@ form #amount {
 /* Toolbar */
 .tool-container {
   width: var(--grid-size);
-  margin: 15px auto 0;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -86,6 +86,11 @@ form #amount {
 
 .current-tool {
   margin-left: auto;
+}
+
+#darken {
+  margin-left: 7px;
+  transform: scale(1.3);
 }
 
 /* Sketch board */
