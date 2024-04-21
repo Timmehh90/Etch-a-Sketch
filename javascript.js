@@ -13,7 +13,7 @@ function createGrid(input) {
   const gridSize = parseInt(
     getComputedStyle(document.documentElement).getPropertyValue("--grid-size")
   );
-  console.log("Grid size:", gridSize);
+
   // Resets the grid when function is called
   sketchContainer.innerHTML = "";
 
@@ -41,7 +41,10 @@ function createGrid(input) {
 
 // Changes background color to black on mouse enter
 function colorOnHover(event) {
-  event.target.style.backgroundColor = "black";
+  const randomRed = Math.floor(Math.random() * 256);
+  const randomGreen = Math.floor(Math.random() * 256);
+  const randomBlue = Math.floor(Math.random() * 256);
+  event.target.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
 }
 
 // Changes background color to white on mouse leave
@@ -57,4 +60,4 @@ submitButton.addEventListener("click", (event) => {
 });
 
 // Standard grid creation
-createGrid(64);
+createGrid(16);
