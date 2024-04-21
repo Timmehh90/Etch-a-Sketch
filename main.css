@@ -24,7 +24,7 @@ html {
 }
 
 .sketch-container {
-  border: var(--clr-600) 2px solid;
+  border: var(--clr-600) 4px solid;
   display: flex;
   flex-wrap: wrap;
   margin: 50px auto 0;
@@ -36,5 +36,5 @@ html {
   width: 16px;
   background: white;
   transition: background-color 0.3s ease-out;
-  border: black 1px solid;
+  /* border: black 1px solid; */
 }
