@@ -33,6 +33,7 @@ function createGrid(input) {
       for (let j = 0; j < input; j++) {
         const column = document.createElement("div");
         column.classList.add("grid-element");
+        // Using --grid-size variable from CSS to make the elements fit within the container
         column.style.width = gridSize / input + "px";
         column.style.height = gridSize / input + "px";
         row.appendChild(column);
@@ -45,6 +46,9 @@ function createGrid(input) {
         toolSelection(event, mode);
       });
     });
+  } else {
+    // Input guidance
+    console.log("You must choose between 1 - 100");
   }
 }
 
