@@ -52,7 +52,7 @@ function createGrid(input) {
     });
   } else {
     // Input guidance
-    label.innerHTML = "You must choose between 1 - 100";
+    label.innerHTML = `You must choose between <span class="accent">1 - 100</span>`;
     label.classList.add("label-transition");
     setTimeout(() => {
       label.innerHTML = `Create a grid between <span class="accent">1x1</span> and
