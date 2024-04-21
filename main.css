@@ -109,3 +109,8 @@ form #amount {
   padding: 4px 8px;
   font-weight: bold;
 }
+
+.active {
+  border: red solid 1px;
+  color: red;
+}

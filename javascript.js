@@ -59,7 +59,7 @@ function toolSelection(event, tool) {
   const randomBlue = Math.floor(Math.random() * 256);
 
   if (tool === "Black") {
-    event.target.style.backgroundColor = "rgb(0, 0, 0)";
+    event.target.style.backgroundColor = "black";
   } else if (tool === "Rainbow") {
     event.target.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
   } else if (tool === "Erase") {
@@ -83,16 +83,25 @@ submitButton.addEventListener("click", (event) => {
 blackModeButton.addEventListener("click", () => {
   mode = "Black";
   activeTool.textContent = `${mode}`;
+  blackModeButton.classList.add("active");
+  rainbowModeButton.classList.remove("active");
+  eraseButton.classList.remove("active");
 });
 
 rainbowModeButton.addEventListener("click", () => {
   mode = "Rainbow";
   activeTool.textContent = `${mode}`;
+  rainbowModeButton.classList.add("active");
+  blackModeButton.classList.remove("active");
+  eraseButton.classList.remove("active");
 });
 
 eraseButton.addEventListener("click", () => {
   mode = "Erase";
   activeTool.textContent = `${mode}`;
+  eraseButton.classList.add("active");
+  rainbowModeButton.classList.remove("active");
+  blackModeButton.classList.remove("active");
 });
 
 clearButton.addEventListener("click", clearGrid);
