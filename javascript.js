@@ -49,8 +49,10 @@ submitButton.addEventListener("click", (event) => {
   createGrid(parseInt(inputField.value));
 });
 
-// Add event listeners to the standard grid when you enter the site
-standardGridElements.forEach((gridElement) => {
-  gridElement.addEventListener("mouseenter", colorOnHover);
-  gridElement.addEventListener("mouseleave", defaultColor);
-});
+// // Add event listeners to the standard grid when you enter the site
+// standardGridElements.forEach((gridElement) => {
+//   gridElement.addEventListener("mouseenter", colorOnHover);
+//   gridElement.addEventListener("mouseleave", defaultColor);
+// });
+
+createGrid(16);
