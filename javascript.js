@@ -9,20 +9,36 @@ const sketchContainer = document.querySelector(".sketch-container");
 
 // FUNCTIONS
 function createGrid(input) {
-  if (input > 0 && input <= 500) {
+  sketchContainer.innerHTML = "";
+  if (input > 0 && input <= 100) {
     for (let i = 0; i < input; i++) {
-      const pixel = document.createElement("div");
-      pixel.classList.add("grid-element");
-      sketchContainer.appendChild(pixel);
+      const row = document.createElement("div");
+      row.classList.add("row");
+      sketchContainer.appendChild(row);
+      for (let i = 0; i < input; i++) {
+        const column = document.createElement("div");
+        column.classList.add("grid-element");
+        row.appendChild(column);
+      }
     }
-    // Goes over each created grid element to add an mouse enter event listener
-    const gridElements = document.querySelectorAll(".grid-element");
-    gridElements.forEach((gridElement) => {
-      gridElement.addEventListener("mouseenter", colorOnHover);
-      gridElement.addEventListener("mouseleave", defaultColor);
-    });
   }
 }
+
+// function createGrid(input) {
+//   if (input > 0 && input <= 500) {
+//     for (let i = 0; i < input; i++) {
+//       const pixel = document.createElement("div");
+//       pixel.classList.add("grid-element");
+//       sketchContainer.appendChild(pixel);
+//     }
+//     // Goes over each created grid element to add an mouse enter event listener
+//     const gridElements = document.querySelectorAll(".grid-element");
+//     gridElements.forEach((gridElement) => {
+//       gridElement.addEventListener("mouseenter", colorOnHover);
+//       gridElement.addEventListener("mouseleave", defaultColor);
+//     });
+//   }
+// }
 
 // Changes background color to black on mouse enter
 function colorOnHover(event) {
