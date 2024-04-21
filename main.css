@@ -33,10 +33,4 @@ html {
   height: 16px;
   width: 16px;
   background: white;
-  transition: 8s ease-out;
-}
-
-.pixel:hover {
-  transition: 300ms ease-out;
-  background: black;
 }
