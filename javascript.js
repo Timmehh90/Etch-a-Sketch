@@ -3,6 +3,7 @@
 // Form variables
 const inputField = document.querySelector("#amount");
 const submitButton = document.querySelector("#submit");
+const label = document.querySelector("#label");
 
 // Sketch container
 const sketchContainer = document.querySelector(".sketch-container");
@@ -51,7 +52,13 @@ function createGrid(input) {
     });
   } else {
     // Input guidance
-    console.log("You must choose between 1 - 100");
+    label.innerHTML = "You must choose between 1 - 100";
+    label.classList.add("label-transition");
+    setTimeout(() => {
+      label.innerHTML = `Create a grid between <span class="accent">1x1</span> and
+          <span class="accent">100x100</span>`;
+      label.classList.remove("label-transition");
+    }, 5000); // Label changes back after 5 seconds
   }
 }
 
@@ -86,7 +93,7 @@ function clearGrid() {
 
 // Checks if opacity is below 1 then increment opacity by 0.1
 function changeOpacity(event) {
-  let opacity = parseFloat(+getComputedStyle(event.target).opacity);
+  let opacity = parseFloat(getComputedStyle(event.target).opacity);
   if (!isNaN(opacity) && opacity < 1) {
     opacity += 0.1;
     event.target.style.opacity = opacity.toString();
