@@ -81,11 +81,10 @@ function clearGrid() {
 }
 
 function changeOpacity(event) {
-  let opacity = +getComputedStyle(event.target).opacity;
+  let opacity = parseFloat(+getComputedStyle(event.target).opacity);
   console.log(opacity);
-  if (opacity === "") {
-    event.target.style.opacity.toString();
-  } else if (opacity > 0) {
+  if (!isNaN(opacity) && opacity < 1) {
+    opacity += 0.1;
     event.target.style.opacity = opacity.toString();
   }
 }

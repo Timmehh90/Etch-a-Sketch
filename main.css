@@ -109,6 +109,7 @@ form #amount {
 
 .grid-element {
   transition: background-color var(--draw-speed) ease-out;
+  opacity: 0.1;
 }
 
 /* Buttons */
