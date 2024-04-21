@@ -12,6 +12,7 @@
   --clr-300: #d1d5db;
   --clr-600: #4b5563;
   --clr-900: #111827;
+  --clr-accent: red;
   --grid-size: 650px;
   --draw-speed: 500ms;
 }
@@ -44,7 +45,7 @@ html {
 }
 
 .red {
-  color: red;
+  color: var(--clr-accent);
 }
 
 /* Form */
@@ -120,6 +121,6 @@ form #amount {
 }
 
 .active {
-  border: red solid 1px;
-  color: red;
+  border: var(--clr-accent) solid 1px;
+  color: var(--clr-accent);
 }
