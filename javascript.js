@@ -6,6 +6,7 @@ const submitButton = document.querySelector("#submit");
 
 // Sketch container
 const sketchContainer = document.querySelector(".sketch-container");
+const standardGridElements = document.querySelectorAll(".grid-element");
 
 // FUNCTIONS
 function createGrid(input) {
@@ -41,9 +42,15 @@ function defaultColor(event) {
   event.target.style.backgroundColor = "white";
 }
 
-// EVENT HANDLERS
+// EVENT LISTENERS
 
 submitButton.addEventListener("click", (event) => {
   event.preventDefault();
   createGrid(parseInt(inputField.value));
+});
+
+// Add event listeners to the standard grid when you enter the site
+standardGridElements.forEach((gridElement) => {
+  gridElement.addEventListener("mouseenter", colorOnHover);
+  gridElement.addEventListener("mouseleave", defaultColor);
 });
