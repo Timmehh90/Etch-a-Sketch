@@ -70,11 +70,13 @@ function toolSelection(event, tool) {
     event.target.style.opacity = "0.1";
   }
 
+  // If darken checkbox is checked, increment opacity
   if (darken.checked === true) {
     changeOpacity(event);
   }
 }
 
+// Clears the grid and resets opacity
 function clearGrid() {
   sketchContainer.querySelectorAll(".grid-element").forEach((gridElement) => {
     gridElement.style.backgroundColor = "var(--clr-200)";
@@ -82,9 +84,9 @@ function clearGrid() {
   });
 }
 
+// Checks if opacity is below 1 then increment opacity by 0.1
 function changeOpacity(event) {
   let opacity = parseFloat(+getComputedStyle(event.target).opacity);
-  console.log(opacity);
   if (!isNaN(opacity) && opacity < 1) {
     opacity += 0.1;
     event.target.style.opacity = opacity.toString();
