@@ -43,6 +43,10 @@ html {
   text-align: center;
 }
 
+.red {
+  color: red;
+}
+
 /* Form */
 form {
   color: var(--clr-600);
