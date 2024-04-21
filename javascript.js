@@ -7,6 +7,12 @@ const submitButton = document.querySelector("#submit");
 // Sketch container
 const sketchContainer = document.querySelector(".sketch-container");
 
+// Mode variables
+let mode = "black";
+const blackModeButton = document.querySelector("#black");
+const rainbowModeButton = document.querySelector("#rainbow");
+const eraseButton = document.querySelector("#erase");
+
 // FUNCTIONS
 function createGrid(input) {
   // Stores CSS variable inside javascript so i can easily edit size by only editing CSS
@@ -33,23 +39,26 @@ function createGrid(input) {
     // Goes over each created grid element to add an mouse enter event listener
     const gridElements = document.querySelectorAll(".grid-element");
     gridElements.forEach((gridElement) => {
-      gridElement.addEventListener("mouseenter", colorOnHover);
-      // gridElement.addEventListener("mouseleave", defaultColor);
+      gridElement.addEventListener("mouseenter", (event) => {
+        colorOnHover(event, mode);
+      });
     });
   }
 }
 
 // Changes background color to black on mouse enter
-function colorOnHover(event) {
+function colorOnHover(event, tool) {
   const randomRed = Math.floor(Math.random() * 256);
   const randomGreen = Math.floor(Math.random() * 256);
   const randomBlue = Math.floor(Math.random() * 256);
-  event.target.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
-}
 
-// Changes background color to white on mouse leave
-function defaultColor(event) {
-  event.target.style.backgroundColor = "white";
+  if (tool === "black") {
+    event.target.style.backgroundColor = "rgb(0, 0, 0)";
+  } else if (tool === "rainbow") {
+    event.target.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
+  } else if (tool === "erase") {
+    event.target.style.backgroundColor = "var(--clr-200)";
+  }
 }
 
 // EVENT LISTENERS
@@ -57,6 +66,18 @@ function defaultColor(event) {
 submitButton.addEventListener("click", (event) => {
   event.preventDefault();
   createGrid(parseInt(inputField.value));
+});
+
+blackModeButton.addEventListener("click", () => {
+  mode = "black";
+});
+
+rainbowModeButton.addEventListener("click", () => {
+  mode = "rainbow";
+});
+
+eraseButton.addEventListener("click", () => {
+  mode = "erase";
 });
 
 // Standard grid creation
