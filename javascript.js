@@ -18,10 +18,10 @@ function createGrid(input) {
       pixel.classList.add("grid-element");
       sketchContainer.appendChild(pixel);
     }
+    // Goes over each created grid element to add an mouse enter event listener
     const gridElements = document.querySelectorAll(".grid-element");
     gridElements.forEach((gridElement) => {
       gridElement.addEventListener("mouseenter", colorOnHover);
-      console.log("Event listener added to gridElement");
     });
   }
 }
