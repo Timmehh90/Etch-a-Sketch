@@ -165,6 +165,14 @@ darkenBoost.addEventListener("change", (event) => {
   }
 });
 
+colorPicker.addEventListener("change", () => {
+  mode = "Color Picker";
+  activeTool.textContent = `${mode}`;
+  colorPickerModeButton.classList.add("active");
+  rainbowModeButton.classList.remove("active");
+  eraseButton.classList.remove("active");
+});
+
 // Standard grid creation
 createGrid(16);
 
