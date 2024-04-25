@@ -87,6 +87,9 @@ form #amount {
 
 .current-tool {
   margin-left: auto;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 #darken {
@@ -95,13 +98,26 @@ form #amount {
   accent-color: var(--clr-accent);
 }
 
+.current-tool input[type="color" i] {
+  outline: none !important;
+  border: none;
+  background: transparent;
+}
+
+.darken-checkbox,
+.color-picker {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 /* Sketch board */
 
 .sketch-container {
   border: var(--clr-600) 20px solid;
   border-radius: 5px;
   display: flex;
-  margin: 25px auto 50px;
+  margin: 10px auto 50px;
   width: var(--grid-size);
   height: var(--grid-size);
   box-sizing: content-box;
