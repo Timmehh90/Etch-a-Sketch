@@ -13,7 +13,7 @@
   --clr-600: #4b5563;
   --clr-900: #111827;
   --clr-accent: red;
-  --grid-size: 650px;
+  --board-size: 650px;
   --draw-speed: 200ms;
 }
 
@@ -72,7 +72,7 @@ form #amount {
 
 /* Toolbar */
 .tool-container {
-  width: var(--grid-size);
+  width: var(--board-size);
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -119,16 +119,16 @@ form #amount {
   border-radius: 5px;
   display: flex;
   margin: 10px auto 50px;
-  width: var(--grid-size);
-  height: var(--grid-size);
+  width: var(--board-size);
+  height: var(--board-size);
   box-sizing: content-box;
   background: var(--clr-200);
 }
 
-.grid-element {
+.board-element {
   transition: background-color var(--draw-speed) ease-out;
   opacity: 0.1;
-  border: red solid 5px;
+  border: red solid 1px;
 }
 
 /* Footer */

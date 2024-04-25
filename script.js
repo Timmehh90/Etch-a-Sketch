@@ -42,14 +42,14 @@ function drawBoard(gridSize = 16) {
   // Clear previous board
   sketchContainer.innerHTML = "";
   const boardSize = parseInt(
-    getComputedStyle(document.documentElement).getPropertyValue("--grid-size")
+    getComputedStyle(document.documentElement).getPropertyValue("--board-size")
   );
   for (let i = 0; i < gridSize; i++) {
     const row = document.createElement("div");
     row.classList.add("row");
     for (let j = 0; j < gridSize; j++) {
       const column = document.createElement("div");
-      column.classList.add("grid-element");
+      column.classList.add("board-element");
       column.style.width = boardSize / gridSize + "px";
       column.style.height = boardSize / gridSize + "px";
       row.appendChild(column);
