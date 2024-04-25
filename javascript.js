@@ -18,6 +18,7 @@ const eraseButton = document.querySelector("#erase");
 const clearButton = document.querySelector("#clear");
 const activeTool = document.querySelector("#active-tool");
 const darken = document.querySelector("#darken");
+const darkenBoost = document.querySelector("#darken-boost");
 
 // FUNCTIONS
 function createGrid(input) {
@@ -93,8 +94,10 @@ function toolSelection(event, tool) {
   }
 
   // If darken checkbox is checked, increment opacity
-  if (darken.checked === true) {
-    changeOpacity(event);
+  if (darken.checked === true && darkenBoost.checked === true) {
+    changeOpacity(event, 0.03);
+  } else if (darken.checked === true) {
+    changeOpacity(event, 0.01);
   }
 }
 
@@ -107,9 +110,8 @@ function clearGrid() {
 }
 
 // Checks if opacity is below 1 then increment opacity by 0.1
-function changeOpacity(event) {
+function changeOpacity(event, opacityIncrement) {
   let opacity = parseFloat(getComputedStyle(event.target).opacity);
-  const opacityIncrement = 0.01;
   if (!isNaN(opacity) && opacity < 1) {
     opacity += opacityIncrement;
     event.target.style.opacity = opacity.toString();
@@ -148,6 +150,13 @@ eraseButton.addEventListener("click", () => {
 });
 
 clearButton.addEventListener("click", clearGrid);
+
+// Changes boost to go off when darken is unchecked
+darken.addEventListener("change", (event) => {
+  if (!event.target.checked) {
+    darkenBoost.checked = false;
+  }
+});
 
 // Standard grid creation
 createGrid(16);
