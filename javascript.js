@@ -7,10 +7,13 @@ const label = document.querySelector("#label");
 
 // Sketch container
 const sketchContainer = document.querySelector(".sketch-container");
+const colorPicker = document.querySelector("#color");
 
 // Mode variables
-let mode = "Black";
-const blackModeButton = document.querySelector("#black");
+let mode = "Color Picker";
+const colorPickerModeButton = document.querySelector("#color");
+const colorPickerValue = colorPickerModeButton.value;
+
 const rainbowModeButton = document.querySelector("#rainbow");
 const eraseButton = document.querySelector("#erase");
 const clearButton = document.querySelector("#clear");
@@ -81,8 +84,8 @@ function toolSelection(event, tool) {
   const randomGreen = Math.floor(Math.random() * 256);
   const randomBlue = Math.floor(Math.random() * 256);
 
-  if (tool === "Black") {
-    event.target.style.backgroundColor = "black";
+  if (tool === "Color Picker") {
+    event.target.style.backgroundColor = colorPickerModeButton.value;
   } else if (tool === "Rainbow") {
     event.target.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
   } else if (tool === "Erase") {
@@ -121,10 +124,10 @@ submitButton.addEventListener("click", (event) => {
   createGrid(parseInt(inputField.value));
 });
 
-blackModeButton.addEventListener("click", () => {
-  mode = "Black";
+colorPickerModeButton.addEventListener("click", () => {
+  mode = "Color Picker";
   activeTool.textContent = `${mode}`;
-  blackModeButton.classList.add("active");
+  colorPickerModeButton.classList.add("active");
   rainbowModeButton.classList.remove("active");
   eraseButton.classList.remove("active");
 });
@@ -133,7 +136,7 @@ rainbowModeButton.addEventListener("click", () => {
   mode = "Rainbow";
   activeTool.textContent = `${mode}`;
   rainbowModeButton.classList.add("active");
-  blackModeButton.classList.remove("active");
+  colorPickerModeButton.classList.remove("active");
   eraseButton.classList.remove("active");
 });
 
@@ -142,7 +145,7 @@ eraseButton.addEventListener("click", () => {
   activeTool.textContent = `${mode}`;
   eraseButton.classList.add("active");
   rainbowModeButton.classList.remove("active");
-  blackModeButton.classList.remove("active");
+  colorPickerModeButton.classList.remove("active");
 });
 
 clearButton.addEventListener("click", clearGrid);
@@ -152,4 +155,4 @@ createGrid(16);
 
 // Initialize current mode
 activeTool.textContent = `${mode}`;
-blackModeButton.classList.add("active");
+colorPickerModeButton.classList.add("active");
