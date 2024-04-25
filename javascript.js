@@ -11,7 +11,6 @@ const colorPicker = document.querySelector("#color");
 
 // Mode variables
 let mode = "Color Picker";
-const colorPickerValue = colorPicker.value;
 
 const colorPickerModeButton = document.querySelector("#color-picker");
 const rainbowModeButton = document.querySelector("#rainbow");
@@ -85,7 +84,7 @@ function toolSelection(event, tool) {
   const randomBlue = Math.floor(Math.random() * 256);
 
   if (tool === "Color Picker") {
-    event.target.style.backgroundColor = colorPickerModeButton.value;
+    event.target.style.backgroundColor = colorPicker.value;
   } else if (tool === "Rainbow") {
     event.target.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
   } else if (tool === "Erase") {
