@@ -158,6 +158,13 @@ darken.addEventListener("change", (event) => {
   }
 });
 
+// Changes darken to go on when boost is checked
+darkenBoost.addEventListener("change", (event) => {
+  if (event.target.checked) {
+    darken.checked = true;
+  }
+});
+
 // Standard grid creation
 createGrid(16);
 
