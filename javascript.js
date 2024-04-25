@@ -42,13 +42,26 @@ function createGrid(input) {
         row.appendChild(column);
       }
     }
+    let isDrawing = false;
 
+    sketchContainer.addEventListener("mousedown", (event) => {
+      event.preventDefault();
+      isDrawing = true;
+    });
     // Goes over each created grid element to add an mouse enter event listener
     const gridElements = document.querySelectorAll(".grid-element");
     gridElements.forEach((gridElement) => {
-      gridElement.addEventListener("mouseenter", (event) => {
-        toolSelection(event, mode);
+      gridElement.addEventListener("mousemove", (event) => {
+        if (isDrawing) {
+          toolSelection(event, mode);
+        }
       });
+    });
+    document.addEventListener("mouseup", () => {
+      isDrawing = false;
+    });
+    document.addEventListener("mouseleave", () => {
+      isDrawing = false;
     });
   } else {
     // Input guidance
@@ -94,8 +107,9 @@ function clearGrid() {
 // Checks if opacity is below 1 then increment opacity by 0.1
 function changeOpacity(event) {
   let opacity = parseFloat(getComputedStyle(event.target).opacity);
+  const opacityIncrement = 0.01;
   if (!isNaN(opacity) && opacity < 1) {
-    opacity += 0.1;
+    opacity += opacityIncrement;
     event.target.style.opacity = opacity.toString();
   }
 }
