@@ -11,9 +11,9 @@ const colorPicker = document.querySelector("#color");
 
 // Mode variables
 let mode = "Color Picker";
-const colorPickerModeButton = document.querySelector("#color");
-const colorPickerValue = colorPickerModeButton.value;
+const colorPickerValue = colorPicker.value;
 
+const colorPickerModeButton = document.querySelector("#color-picker");
 const rainbowModeButton = document.querySelector("#rainbow");
 const eraseButton = document.querySelector("#erase");
 const clearButton = document.querySelector("#clear");
