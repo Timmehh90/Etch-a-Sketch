@@ -5,8 +5,8 @@ const inputField = document.querySelector("#amount");
 const submitButton = document.querySelector("#submit");
 const label = document.querySelector("#label");
 
-// Sketch selectors
-const sketchContainer = document.querySelector(".sketch-container");
+// Board selectors
+const boardContainer = document.querySelector(".board-container");
 const colorPickerInput = document.querySelector("#color");
 
 // Button selectors
@@ -19,7 +19,7 @@ const darken = document.querySelector("#darken");
 const darkenBoost = document.querySelector("#darken-boost");
 
 // Variables
-let mode = "Color Picker";
+let mode = "Rainbow";
 let isDrawing = false;
 
 // FUNCTIONS
@@ -40,7 +40,8 @@ function checkUserInput(input) {
 }
 function drawBoard(gridSize = 16) {
   // Clear previous board
-  sketchContainer.innerHTML = "";
+  boardContainer.innerHTML = "";
+  // Gets board size from CSS to calculate size of board-elements with
   const boardSize = parseInt(
     getComputedStyle(document.documentElement).getPropertyValue("--board-size")
   );
@@ -53,16 +54,55 @@ function drawBoard(gridSize = 16) {
       column.style.width = boardSize / gridSize + "px";
       column.style.height = boardSize / gridSize + "px";
       row.appendChild(column);
+
+      const boardElements = document.querySelectorAll(".board-element");
+      boardElements.forEach((boardElement) => {
+        boardElement.addEventListener("mousemove", (event) => {
+          if (isDrawing) {
+            toolSelection(event, mode);
+          }
+        });
+      });
     }
-    sketchContainer.appendChild(row);
+    boardContainer.appendChild(row);
   }
 }
 // Tools
 function colorPickerMode() {}
-function rainbowMode() {}
+
+function rainbowMode(event) {
+  // event.preventDefault();
+  console.log(
+    `rgb(${randomColorNumber()}, ${randomColorNumber()}, ${randomColorNumber()})`
+  );
+  event.target.style.backgroundColor = `rgb(${randomColorNumber()}, ${randomColorNumber()}, ${randomColorNumber()})`;
+}
+
 function eraseMode() {}
-function clearBoard() {}
-function changeOpacity() {}
+
+function clearBoard() {
+  boardContainer.querySelectorAll(".board-element").forEach((gridElement) => {
+    gridElement.style.backgroundColor = "var(--clr-200)";
+    gridElement.style.opacity = "0.1";
+  });
+}
+
+function changeOpacity(opacityIncrement) {}
+
+function toolSelection(event, mode) {
+  if (mode === "Color Picker") {
+    event.target.style.backgroundColor = colorPicker.value;
+  } else if (mode === "Rainbow") {
+    event.target.style.backgroundColor = `rgb(${randomColorNumber()}, ${randomColorNumber()}, ${randomColorNumber()})`;
+  } else if (mode === "Erase") {
+    eraseMode();
+  }
+  if (darken.checked === true && darkenBoost.checked === true) {
+    changeOpacity(0.03);
+  } else if (darken.checked === true) {
+    changeOpacity(0.01);
+  }
+}
 
 // Error Messages
 function showErrorOnLabel() {
@@ -74,11 +114,31 @@ function showErrorOnLabel() {
   }, 5000);
 }
 
+// Utility
+function randomColorNumber() {
+  return Math.floor(Math.random() * 256);
+}
+
 // EVENT LISTENERS
 
 submitButton.addEventListener("click", (event) => {
   event.preventDefault();
   drawBoard(checkUserInput(inputField.value));
+});
+
+document.addEventListener("mouseup", () => {
+  isDrawing = false;
+});
+document.addEventListener("mouseleave", () => {
+  isDrawing = false;
+});
+
+rainbowModeButton.addEventListener("click", () => {
+  mode = "Rainbow";
+  activeTool.textContent = `${mode}`;
+  rainbowModeButton.classList.add("active");
+  colorPickerModeButton.classList.remove("active");
+  eraseButton.classList.remove("active");
 });
 
 // Start grid creation
