@@ -55,9 +55,20 @@ function drawBoard(gridSize = 16) {
       row.appendChild(column);
     }
     drawBoardContainer.appendChild(row);
+
+    const boardElements = document.querySelectorAll(".board-element");
+    boardElements.forEach((boardElement) => {
+      boardElement.addEventListener("pointerdown", () => {
+        console.log("Pointer down event triggered");
+        boardElement.addEventListener("pointermove", () => {
+          console.log("Pointer move event triggered");
+        });
+      });
+    });
   }
 }
 // Tools
+function draw() {}
 function colorPickerMode() {}
 function rainbowMode() {}
 function eraseMode() {}

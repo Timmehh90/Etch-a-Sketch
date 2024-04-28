@@ -100,7 +100,6 @@ form #amount {
 }
 
 .current-tool input[type="color" i] {
-  outline: none !important;
   border: none;
   background: transparent;
 }
