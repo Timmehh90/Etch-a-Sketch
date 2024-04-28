@@ -116,7 +116,7 @@ form input {
 
 /* Draw board */
 
-.draw-board-container {
+.board-container {
   border: var(--clr-600) 20px solid;
   border-radius: 5px;
   display: flex;
