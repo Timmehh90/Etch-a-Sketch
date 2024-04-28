@@ -6,8 +6,8 @@ const submitButton = document.querySelector("#submit");
 const label = document.querySelector("#label");
 const drawBoardContainer = document.querySelector(".draw-board-container");
 const currentColorPickerColor = document.querySelector("#color");
-const colorPickerModeButton = document.querySelector("#color-picker");
-const rainbowModeButton = document.querySelector("#rainbow");
+const colorPickerToolButton = document.querySelector("#color-picker");
+const rainbowToolButton = document.querySelector("#rainbow");
 const eraseButton = document.querySelector("#erase");
 const clearButton = document.querySelector("#clear");
 const activeTool = document.querySelector("#active-tool");
@@ -65,13 +65,15 @@ function drawBoard(gridSize = 16) {
 // Tools
 function draw(e) {
   if (tool === "Color Picker") {
-    e.target.style.backgroundColor = currentColorPickerColor.value;
+    colorPickerTool(e);
   }
 }
 
-function colorPickerMode() {}
-function rainbowMode() {}
-function eraseMode() {}
+function colorPickerTool(e) {
+  e.target.style.backgroundColor = currentColorPickerColor.value;
+}
+function rainbowTool() {}
+function eraseTool() {}
 function clearBoard() {}
 function changeOpacity() {}
 
