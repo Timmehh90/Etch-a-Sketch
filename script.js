@@ -54,7 +54,7 @@ function drawBoard(gridSize = 16) {
       boardElement.addEventListener("pointerdown", () => {
         console.log("Pointer down event triggered");
         boardElement.addEventListener("pointermove", (e) => {
-          draw(e); // Pass the event object to the draw function
+          draw(e);
           console.log("Pointer move event triggered");
         });
       });
