@@ -1,6 +1,4 @@
 // VARIABLES
-
-// Selectors
 const inputField = document.querySelector("#amount");
 const submitButton = document.querySelector("#submit");
 const label = document.querySelector("#label");
