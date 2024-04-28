@@ -5,8 +5,8 @@ const inputField = document.querySelector("#amount");
 const submitButton = document.querySelector("#submit");
 const label = document.querySelector("#label");
 
-// Sketch selectors
-const sketchContainer = document.querySelector(".sketch-container");
+// DrawBoard selectors
+const drawBoardContainer = document.querySelector(".draw-board-container");
 const colorPickerInput = document.querySelector("#color");
 
 // Button selectors
@@ -40,7 +40,7 @@ function checkUserInput(input) {
 }
 function drawBoard(gridSize = 16) {
   // Clear previous board
-  sketchContainer.innerHTML = "";
+  drawBoardContainer.innerHTML = "";
   const boardSize = parseInt(
     getComputedStyle(document.documentElement).getPropertyValue("--board-size")
   );
@@ -54,7 +54,7 @@ function drawBoard(gridSize = 16) {
       column.style.height = boardSize / gridSize + "px";
       row.appendChild(column);
     }
-    sketchContainer.appendChild(row);
+    drawBoardContainer.appendChild(row);
   }
 }
 // Tools
