@@ -63,6 +63,9 @@ function drawBoard(gridSize = 16) {
       boardElement.addEventListener("pointerup", () => {
         isDrawing = false;
       });
+      boardElement.addEventListener("dragstart", (e) => {
+        e.preventDefault();
+      });
     });
   }
 }
