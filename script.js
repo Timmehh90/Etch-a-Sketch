@@ -70,9 +70,7 @@ function draw(e) {
 }
 
 function colorPickerMode() {}
-
-function rainbowMode(event) {}
-
+function rainbowMode() {}
 function eraseMode() {}
 function clearBoard() {}
 function changeOpacity() {}
