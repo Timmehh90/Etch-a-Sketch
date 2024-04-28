@@ -130,7 +130,7 @@ form input {
 .board-element {
   transition: background-color var(--draw-speed) ease-out;
   opacity: 0.1;
-  border: red solid 1px; /*Temp*/
+  /* border: red solid 1px; Temp */
 }
 
 /* Footer */

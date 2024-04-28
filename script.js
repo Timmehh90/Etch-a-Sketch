@@ -106,9 +106,13 @@ function clearBoard() {
 }
 
 function changeOpacity(e, opacityIncrement) {
+  // Uses parseFloat to make a number of the opacity of the target so you can calculate with it. Gets target opacity
   let opacity = parseFloat(getComputedStyle(e.target).opacity);
+  // Checks if the opacity is a number and below 1
   if (!isNaN(opacity) && opacity < 1) {
+    // Adds opacityIncrement to the retreived opacity number
     opacity += opacityIncrement;
+    // Changes opacity type to string to set target new opacity
     e.target.style.opacity = opacity.toString();
   }
 }
@@ -154,6 +158,20 @@ eraseButton.addEventListener("click", () => {
 });
 
 clearButton.addEventListener("click", clearBoard);
+
+// Changes boost to go off when darken is unchecked
+darken.addEventListener("change", (event) => {
+  if (!event.target.checked) {
+    darkenBoost.checked = false;
+  }
+});
+
+// Changes darken to go on when boost is checked
+darkenBoost.addEventListener("change", (event) => {
+  if (event.target.checked) {
+    darken.checked = true;
+  }
+});
 
 // Start grid creation
 drawBoard();
