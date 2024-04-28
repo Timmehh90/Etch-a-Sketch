@@ -1,15 +1,11 @@
 // VARIABLES
 
-// Form selectors
+// Selectors
 const inputField = document.querySelector("#amount");
 const submitButton = document.querySelector("#submit");
 const label = document.querySelector("#label");
-
-// Board selectors
-const boardContainer = document.querySelector(".board-container");
-const colorPickerInput = document.querySelector("#color");
-
-// Button selectors
+const drawBoardContainer = document.querySelector(".draw-board-container");
+const currentColorPickerColor = document.querySelector("#color");
 const colorPickerModeButton = document.querySelector("#color-picker");
 const rainbowModeButton = document.querySelector("#rainbow");
 const eraseButton = document.querySelector("#erase");
@@ -18,9 +14,7 @@ const activeTool = document.querySelector("#active-tool");
 const darken = document.querySelector("#darken");
 const darkenBoost = document.querySelector("#darken-boost");
 
-// Variables
-let mode = "Rainbow";
-let isDrawing = false;
+let tool = "Color Picker";
 
 // FUNCTIONS
 
@@ -40,14 +34,12 @@ function checkUserInput(input) {
 }
 function drawBoard(gridSize = 16) {
   // Clear previous board
-  boardContainer.innerHTML = "";
-  // Gets board size from CSS to calculate size of board-elements with
+  drawBoardContainer.innerHTML = "";
   const boardSize = parseInt(
     getComputedStyle(document.documentElement).getPropertyValue("--board-size")
   );
   for (let i = 0; i < gridSize; i++) {
     const row = document.createElement("div");
-    row.classList.add("row");
     for (let j = 0; j < gridSize; j++) {
       const column = document.createElement("div");
       column.classList.add("board-element");
@@ -64,10 +56,27 @@ function drawBoard(gridSize = 16) {
         });
       });
     }
-    boardContainer.appendChild(row);
+    drawBoardContainer.appendChild(row);
+
+    const boardElements = document.querySelectorAll(".board-element");
+    boardElements.forEach((boardElement) => {
+      boardElement.addEventListener("pointerdown", () => {
+        console.log("Pointer down event triggered");
+        boardElement.addEventListener("pointermove", (e) => {
+          e.preventDefault();
+          draw(e);
+        });
+      });
+    });
   }
 }
 // Tools
+function draw(e) {
+  if (tool === "Color Picker") {
+    e.target.style.backgroundColor = currentColorPickerColor.value;
+  }
+}
+
 function colorPickerMode() {}
 
 function rainbowMode(event) {
@@ -79,38 +88,19 @@ function rainbowMode(event) {
 }
 
 function eraseMode() {}
+function clearBoard() {}
+function changeOpacity() {}
 
-function clearBoard() {
-  boardContainer.querySelectorAll(".board-element").forEach((gridElement) => {
-    gridElement.style.backgroundColor = "var(--clr-200)";
-    gridElement.style.opacity = "0.1";
-  });
-}
-
-function changeOpacity(opacityIncrement) {}
-
-function toolSelection(event, mode) {
-  if (mode === "Color Picker") {
-    event.target.style.backgroundColor = colorPicker.value;
-  } else if (mode === "Rainbow") {
-    event.target.style.backgroundColor = `rgb(${randomColorNumber()}, ${randomColorNumber()}, ${randomColorNumber()})`;
-  } else if (mode === "Erase") {
-    eraseMode();
-  }
-  if (darken.checked === true && darkenBoost.checked === true) {
-    changeOpacity(0.03);
-  } else if (darken.checked === true) {
-    changeOpacity(0.01);
-  }
+// Utility
+function returnRandomColor() {
+  return Math.floor(Math.random() * 256);
 }
 
 // Error Messages
 function showErrorOnLabel() {
   label.innerHTML = `You must choose between <span class="accent">1 - 100</span>`;
-  label.classList.add("label-transition");
   setTimeout(() => {
     label.innerHTML = `Create a grid between <span class="accent">1x1</span> and <span class="accent">100x100</span>`;
-    label.classList.remove("label-transition");
   }, 5000);
 }
 

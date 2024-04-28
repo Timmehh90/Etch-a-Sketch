@@ -100,7 +100,6 @@ form #amount {
 }
 
 .current-tool input[type="color" i] {
-  outline: none !important;
   border: none;
   background: transparent;
 }
@@ -112,9 +111,9 @@ form #amount {
   gap: 5px;
 }
 
-/* Sketch board */
+/* Draw board board */
 
-.board-container {
+.draw-board-container {
   border: var(--clr-600) 20px solid;
   border-radius: 5px;
   display: flex;
