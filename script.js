@@ -46,15 +46,6 @@ function drawBoard(gridSize = 16) {
       column.style.width = boardSize / gridSize + "px";
       column.style.height = boardSize / gridSize + "px";
       row.appendChild(column);
-
-      const boardElements = document.querySelectorAll(".board-element");
-      boardElements.forEach((boardElement) => {
-        boardElement.addEventListener("mousemove", (event) => {
-          if (isDrawing) {
-            toolSelection(event, mode);
-          }
-        });
-      });
     }
     drawBoardContainer.appendChild(row);
 
@@ -63,13 +54,14 @@ function drawBoard(gridSize = 16) {
       boardElement.addEventListener("pointerdown", () => {
         console.log("Pointer down event triggered");
         boardElement.addEventListener("pointermove", (e) => {
-          e.preventDefault();
-          draw(e);
+          draw(e); // Pass the event object to the draw function
+          console.log("Pointer move event triggered");
         });
       });
     });
   }
 }
+
 // Tools
 function draw(e) {
   if (tool === "Color Picker") {
@@ -79,13 +71,7 @@ function draw(e) {
 
 function colorPickerMode() {}
 
-function rainbowMode(event) {
-  // event.preventDefault();
-  console.log(
-    `rgb(${randomColorNumber()}, ${randomColorNumber()}, ${randomColorNumber()})`
-  );
-  event.target.style.backgroundColor = `rgb(${randomColorNumber()}, ${randomColorNumber()}, ${randomColorNumber()})`;
-}
+function rainbowMode(event) {}
 
 function eraseMode() {}
 function clearBoard() {}
@@ -104,31 +90,11 @@ function showErrorOnLabel() {
   }, 5000);
 }
 
-// Utility
-function randomColorNumber() {
-  return Math.floor(Math.random() * 256);
-}
-
 // EVENT LISTENERS
 
 submitButton.addEventListener("click", (event) => {
   event.preventDefault();
   drawBoard(checkUserInput(inputField.value));
-});
-
-document.addEventListener("mouseup", () => {
-  isDrawing = false;
-});
-document.addEventListener("mouseleave", () => {
-  isDrawing = false;
-});
-
-rainbowModeButton.addEventListener("click", () => {
-  mode = "Rainbow";
-  activeTool.textContent = `${mode}`;
-  rainbowModeButton.classList.add("active");
-  colorPickerModeButton.classList.remove("active");
-  eraseButton.classList.remove("active");
 });
 
 // Start grid creation
