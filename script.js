@@ -1,15 +1,11 @@
 // VARIABLES
 
-// Form selectors
+// Selectors
 const inputField = document.querySelector("#amount");
 const submitButton = document.querySelector("#submit");
 const label = document.querySelector("#label");
-
-// DrawBoard selectors
 const drawBoardContainer = document.querySelector(".draw-board-container");
 const colorPickerInput = document.querySelector("#color");
-
-// Button selectors
 const colorPickerModeButton = document.querySelector("#color-picker");
 const rainbowModeButton = document.querySelector("#rainbow");
 const eraseButton = document.querySelector("#erase");
@@ -18,9 +14,7 @@ const activeTool = document.querySelector("#active-tool");
 const darken = document.querySelector("#darken");
 const darkenBoost = document.querySelector("#darken-boost");
 
-// Variables
 let mode = "Color Picker";
-let isDrawing = false;
 
 // FUNCTIONS
 
@@ -46,7 +40,6 @@ function drawBoard(gridSize = 16) {
   );
   for (let i = 0; i < gridSize; i++) {
     const row = document.createElement("div");
-    row.classList.add("row");
     for (let j = 0; j < gridSize; j++) {
       const column = document.createElement("div");
       column.classList.add("board-element");
@@ -74,6 +67,11 @@ function rainbowMode() {}
 function eraseMode() {}
 function clearBoard() {}
 function changeOpacity() {}
+
+// Utility
+function returnRandomColor() {
+  return Math.floor(Math.random() * 256);
+}
 
 // Error Messages
 function showErrorOnLabel() {
