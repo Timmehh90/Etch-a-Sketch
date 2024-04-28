@@ -30,3 +30,5 @@ From now on I'll be using the README.md file to keep track of what I've learned 
 - You can pass on a css variable from javascript to css by using
   **document.documentElement.style.setProperty("--grid-size", input)**
 - You can change the checkbox tick color by using **accent-color** parameter
+- Instead of mouse events, you can use pointer events, which will also listen to
+  touch events, so your website is also more accessible for mobile.
