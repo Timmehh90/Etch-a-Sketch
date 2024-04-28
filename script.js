@@ -3,7 +3,7 @@ const inputField = document.querySelector("#amount");
 const submitButton = document.querySelector("#submit");
 const label = document.querySelector("#label");
 const boardContainer = document.querySelector(".board-container");
-const currentColorPickerColor = document.querySelector("#color");
+const colorPicker = document.querySelector("#color");
 const colorPickerToolButton = document.querySelector("#color-picker");
 const rainbowToolButton = document.querySelector("#rainbow");
 const eraseButton = document.querySelector("#erase");
@@ -88,7 +88,7 @@ function draw(e) {
 }
 
 function colorPickerTool(e) {
-  e.target.style.backgroundColor = currentColorPickerColor.value;
+  e.target.style.backgroundColor = colorPicker.value;
 }
 
 function rainbowTool(e) {
@@ -171,6 +171,14 @@ darkenBoost.addEventListener("change", (event) => {
   if (event.target.checked) {
     darken.checked = true;
   }
+});
+
+// When you choose a color from the picker, you automatically switch to this tool
+colorPicker.addEventListener("change", () => {
+  tool = "Color Picker";
+  colorPickerToolButton.classList.add("active");
+  rainbowToolButton.classList.remove("active");
+  eraseButton.classList.remove("active");
 });
 
 // Start grid creation
