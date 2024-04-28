@@ -13,6 +13,8 @@ const darken = document.querySelector("#darken");
 const darkenBoost = document.querySelector("#darken-boost");
 
 let tool = "Color Picker";
+let isDrawing = false;
+console.log("Initialize: isDrawing = " + isDrawing);
 
 // FUNCTIONS
 
@@ -52,11 +54,19 @@ function drawBoard(gridSize = 16) {
     const boardElements = document.querySelectorAll(".board-element");
     boardElements.forEach((boardElement) => {
       boardElement.addEventListener("pointerdown", () => {
+        isDrawing = true;
+        console.log("Inside of pointerdown: isDrawing = " + isDrawing);
         console.log("Pointer down event triggered");
-        boardElement.addEventListener("pointermove", (e) => {
+      });
+      boardElement.addEventListener("pointermove", (e) => {
+        if (isDrawing) {
           draw(e);
           console.log("Pointer move event triggered");
-        });
+        }
+      });
+      boardElement.addEventListener("pointerup", () => {
+        isDrawing = false;
+        console.log("Inside of pointerup: isDrawing = " + isDrawing);
       });
     });
   }
