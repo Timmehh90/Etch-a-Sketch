@@ -2,7 +2,7 @@
 const inputField = document.querySelector("#amount");
 const submitButton = document.querySelector("#submit");
 const label = document.querySelector("#label");
-const drawBoardContainer = document.querySelector(".board-container");
+const boardContainer = document.querySelector(".board-container");
 const currentColorPickerColor = document.querySelector("#color");
 const colorPickerToolButton = document.querySelector("#color-picker");
 const rainbowToolButton = document.querySelector("#rainbow");
@@ -33,7 +33,7 @@ function checkUserInput(input) {
 }
 function drawBoard(gridSize = 16) {
   // Clear previous board
-  drawBoardContainer.innerHTML = "";
+  boardContainer.innerHTML = "";
   // Gets board size from CSS variable so javascript stays responsive if i want to change the size.
   const boardSize = parseInt(
     getComputedStyle(document.documentElement).getPropertyValue("--board-size")
@@ -47,7 +47,7 @@ function drawBoard(gridSize = 16) {
       column.style.height = boardSize / gridSize + "px";
       row.appendChild(column);
     }
-    drawBoardContainer.appendChild(row);
+    boardContainer.appendChild(row);
 
     // Adds event listeners to each created board element
     const boardElements = document.querySelectorAll(".board-element");
@@ -80,6 +80,11 @@ function draw(e) {
   } else if (tool === "Erase") {
     eraseTool(e);
   }
+  if (darken.checked === true && darkenBoost.checked === true) {
+    changeOpacity(e, 0.005);
+  } else if (darken.checked === true) {
+    changeOpacity(e, 0.001);
+  }
 }
 
 function colorPickerTool(e) {
@@ -94,15 +99,19 @@ function eraseTool(e) {
   e.target.style.opacity = "0.1";
 }
 function clearBoard() {
-  drawBoardContainer
-    .querySelectorAll(".board-element")
-    .forEach((boardElement) => {
-      boardElement.style.backgroundColor = "var(--clr-200)";
-      boardElement.style.opacity = "0.1";
-    });
+  boardContainer.querySelectorAll(".board-element").forEach((boardElement) => {
+    boardElement.style.backgroundColor = "var(--clr-200)";
+    boardElement.style.opacity = "0.1";
+  });
 }
 
-function changeOpacity() {}
+function changeOpacity(e, opacityIncrement) {
+  let opacity = parseFloat(getComputedStyle(e.target).opacity);
+  if (!isNaN(opacity) && opacity < 1) {
+    opacity += opacityIncrement;
+    e.target.style.opacity = opacity.toString();
+  }
+}
 
 // Utility
 function returnRandomColor() {
