@@ -14,7 +14,6 @@ const darkenBoost = document.querySelector("#darken-boost");
 
 let tool = "Color Picker";
 let isDrawing = false;
-console.log("Initialize: isDrawing = " + isDrawing);
 
 // FUNCTIONS
 
@@ -55,18 +54,14 @@ function drawBoard(gridSize = 16) {
     boardElements.forEach((boardElement) => {
       boardElement.addEventListener("pointerdown", () => {
         isDrawing = true;
-        console.log("Inside of pointerdown: isDrawing = " + isDrawing);
-        console.log("Pointer down event triggered");
       });
       boardElement.addEventListener("pointermove", (e) => {
         if (isDrawing) {
           draw(e);
-          console.log("Pointer move event triggered");
         }
       });
       boardElement.addEventListener("pointerup", () => {
         isDrawing = false;
-        console.log("Inside of pointerup: isDrawing = " + isDrawing);
       });
     });
   }
@@ -76,6 +71,9 @@ function drawBoard(gridSize = 16) {
 function draw(e) {
   if (tool === "Color Picker") {
     colorPickerTool(e);
+  } else if (tool === "Rainbow") {
+    rainbowTool(e);
+  } else if (tool === "Erase") {
   }
 }
 
@@ -83,8 +81,10 @@ function colorPickerTool(e) {
   e.target.style.backgroundColor = currentColorPickerColor.value;
 }
 
-function rainbowTool() {}
-function eraseTool() {}
+function rainbowTool(e) {
+  e.target.style.backgroundColor = `rgb(${returnRandomColor()}, ${returnRandomColor()}, ${returnRandomColor()})`;
+}
+function eraseTool(e) {}
 function clearBoard() {}
 function changeOpacity() {}
 
@@ -102,9 +102,23 @@ function showErrorOnLabel() {
 
 // EVENT LISTENERS
 
-submitButton.addEventListener("click", (event) => {
-  event.preventDefault();
+submitButton.addEventListener("click", (e) => {
+  e.preventDefault();
   drawBoard(checkUserInput(inputField.value));
+});
+
+colorPickerToolButton.addEventListener("click", () => {
+  tool = "Color Picker";
+  colorPickerToolButton.classList.add("active");
+  rainbowToolButton.classList.remove("active");
+  eraseButton.classList.remove("active");
+});
+
+rainbowToolButton.addEventListener("click", () => {
+  tool = "Rainbow";
+  rainbowToolButton.classList.add("active");
+  colorPickerToolButton.classList.remove("active");
+  eraseButton.classList.remove("active");
 });
 
 // Start grid creation
