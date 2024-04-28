@@ -74,6 +74,7 @@ function draw(e) {
   } else if (tool === "Rainbow") {
     rainbowTool(e);
   } else if (tool === "Erase") {
+    eraseTool(e);
   }
 }
 
@@ -84,7 +85,10 @@ function colorPickerTool(e) {
 function rainbowTool(e) {
   e.target.style.backgroundColor = `rgb(${returnRandomColor()}, ${returnRandomColor()}, ${returnRandomColor()})`;
 }
-function eraseTool(e) {}
+function eraseTool(e) {
+  e.target.style.backgroundColor = "var(--clr-200)";
+  e.target.style.opacity = "0.1";
+}
 function clearBoard() {}
 function changeOpacity() {}
 
@@ -119,6 +123,13 @@ rainbowToolButton.addEventListener("click", () => {
   rainbowToolButton.classList.add("active");
   colorPickerToolButton.classList.remove("active");
   eraseButton.classList.remove("active");
+});
+
+eraseButton.addEventListener("click", () => {
+  tool = "Erase";
+  eraseButton.classList.add("active");
+  colorPickerToolButton.classList.remove("active");
+  rainbowToolButton.classList.remove("active");
 });
 
 // Start grid creation
