@@ -66,8 +66,11 @@ form #amount {
   border-radius: 3px;
 }
 
-.label-transition {
-  transition: 2s ease-in;
+form input {
+  box-sizing: content-box;
+  outline-color: var(--clr-accent);
+  padding: 2px 4px;
+  font-weight: bold;
 }
 
 /* Toolbar */
@@ -111,7 +114,7 @@ form #amount {
   gap: 5px;
 }
 
-/* Draw board board */
+/* Draw board */
 
 .draw-board-container {
   border: var(--clr-600) 20px solid;
@@ -127,7 +130,7 @@ form #amount {
 .board-element {
   transition: background-color var(--draw-speed) ease-out;
   opacity: 0.1;
-  border: red solid 1px;
+  border: red solid 1px; /*Temp*/
 }
 
 /* Footer */
