@@ -63,6 +63,7 @@ function drawBoard(gridSize = 16) {
       boardElement.addEventListener("pointerup", () => {
         isDrawing = false;
       });
+      // Prevents default dragging event from happening, to draw more fluidly
       boardElement.addEventListener("dragstart", (e) => {
         e.preventDefault();
       });
@@ -92,7 +93,15 @@ function eraseTool(e) {
   e.target.style.backgroundColor = "var(--clr-200)";
   e.target.style.opacity = "0.1";
 }
-function clearBoard() {}
+function clearBoard() {
+  drawBoardContainer
+    .querySelectorAll(".board-element")
+    .forEach((boardElement) => {
+      boardElement.style.backgroundColor = "var(--clr-200)";
+      boardElement.style.opacity = "0.1";
+    });
+}
+
 function changeOpacity() {}
 
 // Utility
@@ -134,6 +143,8 @@ eraseButton.addEventListener("click", () => {
   colorPickerToolButton.classList.remove("active");
   rainbowToolButton.classList.remove("active");
 });
+
+clearButton.addEventListener("click", clearBoard);
 
 // Start grid creation
 drawBoard();
