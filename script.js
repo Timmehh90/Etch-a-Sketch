@@ -35,6 +35,7 @@ function checkUserInput(input) {
 function drawBoard(gridSize = 16) {
   // Clear previous board
   drawBoardContainer.innerHTML = "";
+  // Gets board size from CSS variable so javascript stays responsive if i want to change the size.
   const boardSize = parseInt(
     getComputedStyle(document.documentElement).getPropertyValue("--board-size")
   );
@@ -49,6 +50,7 @@ function drawBoard(gridSize = 16) {
     }
     drawBoardContainer.appendChild(row);
 
+    // Adds event listeners to each created board element
     const boardElements = document.querySelectorAll(".board-element");
     boardElements.forEach((boardElement) => {
       boardElement.addEventListener("pointerdown", () => {
@@ -72,6 +74,7 @@ function draw(e) {
 function colorPickerTool(e) {
   e.target.style.backgroundColor = currentColorPickerColor.value;
 }
+
 function rainbowTool() {}
 function eraseTool() {}
 function clearBoard() {}
@@ -82,7 +85,6 @@ function returnRandomColor() {
   return Math.floor(Math.random() * 256);
 }
 
-// Error Messages
 function showErrorOnLabel() {
   label.innerHTML = `You must choose between <span class="accent">1 - 100</span>`;
   setTimeout(() => {
