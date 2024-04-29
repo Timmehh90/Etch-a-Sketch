@@ -185,4 +185,7 @@ label[for="darken-boost"] {
   .current-tool {
     margin-bottom: 10px;
   }
+  body {
+    font-size: 0.7rem;
+  }
 }
