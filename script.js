@@ -75,6 +75,9 @@ function drawBoard(gridSize = 16) {
       isDrawing = true;
     }
   });
+  boardContainer.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+  });
 }
 
 // Tools
