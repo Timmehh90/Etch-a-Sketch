@@ -168,7 +168,7 @@ label[for="darken-boost"] {
   color: var(--clr-accent);
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   .board-container {
     width: 80vw;
     height: 80vw;
