@@ -77,10 +77,21 @@ function drawBoard(gridSize = 16) {
         draw(e.touches[0]);
       });
       boardElement.addEventListener("touchmove", (e) => {
-        if (isDrawing) {
-          e.preventDefault();
-          // Simulate pointer event
-          draw({ target: targetElement });
+        // Get the touch event coordinates relative to the board element
+        const touchX =
+          e.touches[0].clientX - boardElement.getBoundingClientRect().left;
+        const touchY =
+          e.touches[0].clientY - boardElement.getBoundingClientRect().top;
+        // Find the board element at the touch coordinates
+        const targetElement = document.elementFromPoint(touchX, touchY);
+          if (
+            targetElement &&
+            targetElement.classList.contains("board-element") &&
+            isDrawing
+          ) {
+            // Perform drawing action
+            draw({ target: targetElement });
+          }
         }
       });
       boardElement.addEventListener("touchend", () => {
