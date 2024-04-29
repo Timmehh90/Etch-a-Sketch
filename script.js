@@ -15,6 +15,11 @@ const darkenBoost = document.querySelector("#darken-boost");
 let tool = "Color Picker";
 let isDrawing = false;
 
+// const width = boardContainer.clientWidth;
+// const height = boardContainer.clientHeight;
+
+// console.log(`Board width: ${width}, Board height: ${height}`);
+
 // FUNCTIONS
 
 // Gets input from the form and checks for errors
@@ -34,10 +39,7 @@ function checkUserInput(input) {
 function drawBoard(gridSize = 16) {
   // Clear previous board
   boardContainer.innerHTML = "";
-  // Gets board size from CSS variable so javascript stays responsive if i want to change the size.
-  const boardSize = parseInt(
-    getComputedStyle(document.documentElement).getPropertyValue("--board-size")
-  );
+  const boardSize = boardContainer.clientHeight;
   for (let i = 0; i < gridSize; i++) {
     const row = document.createElement("div");
     for (let j = 0; j < gridSize; j++) {
