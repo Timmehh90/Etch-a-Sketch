@@ -187,5 +187,16 @@ colorPicker.addEventListener("change", () => {
   eraseButton.classList.remove("active");
 });
 
+// Adjusts grid when user adjusts window size
+window.addEventListener("resize", () => {
+  const boardSize = boardContainer.clientHeight;
+  const gridSize = inputField.placeholder;
+  const boardElements = document.querySelectorAll(".board-element");
+  boardElements.forEach((boardElement) => {
+    boardElement.style.width = boardSize / gridSize + "px";
+    boardElement.style.height = boardSize / gridSize + "px";
+  });
+});
+
 // Start grid creation
 drawBoard();
