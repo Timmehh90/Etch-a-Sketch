@@ -68,20 +68,19 @@ function drawBoard(gridSize = 16) {
         e.preventDefault();
       });
 
-      // Touch listeners (to prevent dragging on mobile)
+      // Touch listeners (to prevent scrolling on mobile)
+
       boardElement.addEventListener("touchstart", (e) => {
         isDrawing = true;
-        // Prevent default touch scrolling behavior
         e.preventDefault();
         // Simulate pointer event
         draw(e.touches[0]);
       });
       boardElement.addEventListener("touchmove", (e) => {
         if (isDrawing) {
-          // Prevent default touch scrolling behavior
           e.preventDefault();
           // Simulate pointer event
-          draw(e.touches[0]);
+          draw({ target: targetElement });
         }
       });
       boardElement.addEventListener("touchend", () => {
@@ -92,6 +91,9 @@ function drawBoard(gridSize = 16) {
   }
   boardContainer.addEventListener("pointerleave", () => {
     isDrawing = false;
+  });
+  boardContainer.addEventListener("pointerenter", () => {
+    isDrawing = true;
   });
 
   boardContainer.addEventListener("touchmove", (e) => {
