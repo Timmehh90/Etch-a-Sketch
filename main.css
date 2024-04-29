@@ -179,6 +179,8 @@ label[for="darken-boost"] {
   }
   .tools {
     margin: 15px 0;
+    gap: 5px;
+    flex-wrap: wrap;
   }
   .current-tool {
     margin-bottom: 10px;
