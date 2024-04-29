@@ -67,10 +67,35 @@ function drawBoard(gridSize = 16) {
       boardElement.addEventListener("dragstart", (e) => {
         e.preventDefault();
       });
+
+      // Touch listeners (to prevent dragging on mobile)
+      boardElement.addEventListener("touchstart", (e) => {
+        isDrawing = true;
+        // Prevent default touch scrolling behavior
+        e.preventDefault();
+        // Simulate pointer event
+        draw(e.touches[0]);
+      });
+      boardElement.addEventListener("touchmove", (e) => {
+        if (isDrawing) {
+          // Prevent default touch scrolling behavior
+          e.preventDefault();
+          // Simulate pointer event
+          draw(e.touches[0]);
+        }
+      });
+      boardElement.addEventListener("touchend", () => {
+        isDrawing = false;
+      });
+      // Spaceholder
     });
   }
   boardContainer.addEventListener("pointerleave", () => {
     isDrawing = false;
+  });
+
+  boardContainer.addEventListener("touchmove", (e) => {
+    e.preventDefault();
   });
 }
 
@@ -113,7 +138,7 @@ function changeOpacity(e, opacityIncrement) {
   let opacity = parseFloat(getComputedStyle(e.target).opacity);
   // Checks if the opacity is a number and below 1
   if (!isNaN(opacity) && opacity < 1) {
-    // Adds opacityIncrement to the retreived opacity number
+    // Adds opacityIncrement to the retrieved opacity number
     opacity += opacityIncrement;
     // Changes opacity type to string to set target new opacity
     e.target.style.opacity = opacity.toString();
