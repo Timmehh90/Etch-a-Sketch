@@ -69,6 +69,9 @@ function drawBoard(gridSize = 16) {
       });
     });
   }
+  boardContainer.addEventListener("pointerleave", () => {
+    isDrawing = false;
+  });
 }
 
 // Tools
@@ -160,15 +163,15 @@ eraseButton.addEventListener("click", () => {
 clearButton.addEventListener("click", clearBoard);
 
 // Changes boost to go off when darken is unchecked
-darken.addEventListener("change", (event) => {
-  if (!event.target.checked) {
+darken.addEventListener("change", (e) => {
+  if (!e.target.checked) {
     darkenBoost.checked = false;
   }
 });
 
 // Changes darken to go on when boost is checked
-darkenBoost.addEventListener("change", (event) => {
-  if (event.target.checked) {
+darkenBoost.addEventListener("change", (e) => {
+  if (e.target.checked) {
     darken.checked = true;
   }
 });

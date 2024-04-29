@@ -114,8 +114,8 @@ form input {
   gap: 2px;
 }
 
-.darken-checkbox:nth-child(3) {
-  margin-left: 100px;
+label[for="darken-boost"] {
+  margin-left: 10px;
 }
 
 /* Draw board */
