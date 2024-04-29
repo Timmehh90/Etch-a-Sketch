@@ -133,7 +133,7 @@ label[for="darken-boost"] {
 .board-element {
   transition: background-color var(--draw-speed) ease-out;
   opacity: 0.1;
-  border: solid red 1px;
+  /* border: solid red 1px; */
 }
 
 /* Footer */

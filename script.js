@@ -15,11 +15,6 @@ const darkenBoost = document.querySelector("#darken-boost");
 let tool = "Color Picker";
 let isDrawing = false;
 
-// const width = boardContainer.clientWidth;
-// const height = boardContainer.clientHeight;
-
-// console.log(`Board width: ${width}, Board height: ${height}`);
-
 // FUNCTIONS
 
 // Gets input from the form and checks for errors
